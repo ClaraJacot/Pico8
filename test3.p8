@@ -26,7 +26,7 @@ function _draw()
 		cls(6)
 		draw_map()
 		draw_player()
-		draw_msg()
+		camera()draw_msg()
 	end
 end
 -->8
@@ -115,7 +115,8 @@ end
 
 function init_msg()
 message={}
-create_msg("clara","bonjour")
+create_msg("but du jeu",
+"rendez vous au safe place\nderriere les portes dorees")
 end
 
 function create_msg(name,...)
@@ -135,7 +136,11 @@ function draw_msg()
 			if p.y%16>=9 then
 				y=10
 			end	
-		print (message[1],0,60,7)
+		rectfill(6,y,
+		6+#msg_title*4,y+6,2)	
+		print (msg_title,7,y+1,7)
+		rectfill(2,y+9,125,y+21,13)
+		print (message[1],3,y+10,7)
 	end	
 end
 -->8
